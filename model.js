@@ -1,0 +1,1 @@
+export const Dino = "./model/dino.glb";
