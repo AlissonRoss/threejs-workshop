@@ -45,25 +45,20 @@ sphere.position.set(1,1,0) //Sets the position of the sphere
 scene.add(sphere); // Adds sphere to the scene
 
 
+function init(){
+	
 /*LOADER */
-const loader = new GLTFLoader();
-const loadAsync = url => {
-    return new Promise(resolve => {
-      loader.load(url, gltf => {
-        resolve(gltf);
-      })
-    })
+	const loader = new GLTFLoader();
+
+	loader.load(
+		Dino,
+		function(gltf){
+			scene.add(gltf.scene)
+		}
+	)
+	animate();
+	
 }
-
-Promise.all(loadAsync(Dino)).then(models => {
-	models = models.map(obj=>{
-		return obj;
-	});
-})
-
-model1.position.set(0.5,1,1);
-scene.add(model1);
-
 
 /*Animation */
 function animate() {
